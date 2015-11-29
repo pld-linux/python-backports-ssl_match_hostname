@@ -11,7 +11,7 @@ Patch0:		namespace.patch
 URL:		https://bitbucket.org/brandon/backports.ssl_match_hostname
 BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-backports
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
