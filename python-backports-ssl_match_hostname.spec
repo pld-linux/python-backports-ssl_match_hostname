@@ -2,15 +2,15 @@
 Summary:	The ssl.match_hostname() function from Python 3
 Summary(pl.UTF-8):	Funkcja ssl.match_hostname() z Pythona 3
 Name:		python-backports-ssl_match_hostname
-Version:	3.5.0.1
+Version:	3.7.0.1
 Release:	1
 License:	PSF v2
 Group:		Libraries/Python
 # Source0Download: https://pypi.python.org/simple/backports.ssl-match-hostname/
 Source0:	https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/%{module_name}-%{version}.tar.gz
-# Source0-md5:	c03fc5e2c7b3da46b81acf5cbacfe1e6
+# Source0-md5:	32d2f593af01a046bec3d2f5181a420a
 URL:		https://bitbucket.org/brandon/backports.ssl_match_hostname
-BuildRequires:	python-modules >= 1:2.4
+BuildRequires:	python-modules >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-backports
@@ -30,7 +30,8 @@ this check instead of requiring every application to implement the
 check separately.
 
 This backport brings match_hostname() to users of earlier versions of
-Python. The actual code inside comes verbatim from Python 3.2.
+Python. The actual code inside comes from Python 3.7 with small
+changes for portability.
 
 %description -l pl.UTF-8
 Warstwa bezpiecznych gniazd (Secure Sockets Layer) jest naprawdę
@@ -45,20 +46,20 @@ wykonuje to sprawdzenie zamiast wymagania implementacji w każdej
 aplikacji.
 
 Ten backport udostępnia match_hostname() użytkownikom wcześniejszych
-wersji Pythona. Sam kod pochodzi bez zmian z Pythona 3.2.
+wersji Pythona. Sam kod pochodzi z Pythona 3.7 z niewielkimi zmianami
+pod kątem przenośności.
 
 %prep
 %setup -qn %{module_name}-%{version}
-
-%{__mv} backports/ssl_match_hostname/*.txt .
-touch backports/ssl_match_hostname/README.txt
 
 %build
 %py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %py_install
+
 %py_postclean
 
 %clean
