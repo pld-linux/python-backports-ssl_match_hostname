@@ -3,7 +3,7 @@ Summary:	The ssl.match_hostname() function from Python 3
 Summary(pl.UTF-8):	Funkcja ssl.match_hostname() z Pythona 3
 Name:		python-backports-ssl_match_hostname
 Version:	3.7.0.1
-Release:	1
+Release:	2
 License:	PSF v2
 Group:		Libraries/Python
 # Source0Download: https://pypi.python.org/simple/backports.ssl-match-hostname/
