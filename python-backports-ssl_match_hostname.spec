@@ -3,7 +3,7 @@ Summary:	The ssl.match_hostname() function from Python 3
 Summary(pl.UTF-8):	Funkcja ssl.match_hostname() z Pythona 3
 Name:		python-backports-ssl_match_hostname
 Version:	3.7.0.1
-Release:	2
+Release:	3
 License:	PSF v2
 Group:		Libraries/Python
 # Source0Download: https://pypi.python.org/simple/backports.ssl-match-hostname/
@@ -13,7 +13,7 @@ URL:		https://bitbucket.org/brandon/backports.ssl_match_hostname
 BuildRequires:	python-modules >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python-backports
+Requires:	python-backports >= 1.0-9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,12 +62,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %py_postclean
 
+# belongs to python-backports
+%{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/backports/__init__.py*
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc README.txt LICENSE.txt
-%{py_sitescriptdir}/backports/__init__.py[co]
 %{py_sitescriptdir}/backports/ssl_match_hostname
 %{py_sitescriptdir}/backports.ssl_match_hostname-%{version}-py*.egg-info
